@@ -79,7 +79,3 @@ index.html: The main HTML file that serves as the entry point for the React app.
 db.json: Likely used for mock data, useful for testing without a backend.
 
 eslint.config.js: Configuration file for ESLint, which helps maintain code quality.
-
-
-
-# How to use it
