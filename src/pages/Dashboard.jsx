@@ -14,7 +14,19 @@ function Dashboard() {
         <div className="dashboard-container">
             <div className={`sidebar ${isSidebarExpanded ? "expanded" : "collapsed"}`}>
                 <div className="header">
-                    <h3 className="app-title" style={{ fontFamily: 'Tahoma, sans-serif',cursor:'pointer' }} onClick={() => setSelectedSection("")}>Template</h3>
+                        <img
+                            src="/innLogo.png"
+                            alt="Collapsed Logo"
+                            className="sidebar-logocollapsed-logo"
+                              onClick={() => setSelectedSection("")}
+                        />
+                        <img
+                            src="/nameLogo.png"
+                            alt="Expanded Logo"
+                            className="sidebar-logoexpanded-logo"
+                            onClick={() => setSelectedSection("")}
+                        />
+        
                 </div>
                 <button
                     className="toggle-sidebar-btn"
@@ -42,12 +54,12 @@ function Dashboard() {
                         <h1 className="section-title">{selectedSection}</h1>
                         <h2 className="current-date">{formattedDate}</h2>
                         <div className="section-content">
-                            {selectedSection === "Component1" && (<Component1/>)}
+                            {selectedSection === "Component1" && (<Component1 />)}
                         </div>
                     </>
                 ) : (
-                    <h1>WELCOME TO AYDON'S TEMPLATE</h1>
-                    )}
+                    <h1>WELCOME TO THE INNNOVAYD TEMPLATE</h1>
+                )}
             </div>
         </div >
     );

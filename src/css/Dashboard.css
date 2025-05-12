@@ -18,7 +18,7 @@
   
   /* Sidebar */
   .sidebar {
-    width: 250px;
+    width: 280px;
     background: #020111fb;
     color: #ffffff;
     transition: width 0.3s ease, transform 0.4s ease-in-out;
@@ -43,7 +43,7 @@
   .sidebar .toggle-sidebar-btn {
     background: none;
     border: none;
-    color: #ff4c4c;
+    color: #921bc9;
     font-size: 1.5rem;
     cursor: pointer;
     margin-top: 20px;
@@ -57,10 +57,9 @@
   }
   
   .sidebar .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  align-items: center;
+}
   
   .sidebar img {
     margin-right: 10px;
@@ -71,6 +70,15 @@
     font-weight: bold;
 
   }
+
+  .sidebar-logo {
+  width: 60px;         /* Adjust size as needed */
+  height: auto;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
   
   .sidebar-list {
     list-style: none;
@@ -88,7 +96,7 @@
   
   .sidebar-item:hover,
   .sidebar-item.active {
-    background-color: #ff4c4c;
+    background-color: #921bc9;
     color: #ffffff;
     transform: scale(1.05);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
@@ -132,3 +140,18 @@
   }
   
  
+.sidebar-logoexpanded-logo{
+width: 200px;
+height: 60px;
+margin-left: 85px;
+cursor: grab;
+
+}
+
+.sidebar-logocollapsed-logo{
+width: 100px;
+height: 100px;
+position: absolute;
+left: 0;
+cursor: grab;
+}
