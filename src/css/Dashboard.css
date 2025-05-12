@@ -1,157 +1,183 @@
 /* General Layout */
 .dashboard-container {
-    display: flex;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    animation: fadeIn 1s ease-out;
+  display: flex;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
+
+  to {
+    opacity: 1;
   }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 280px;
-    background: #020111fb;
-    color: #ffffff;
-    transition: width 0.3s ease, transform 0.4s ease-in-out;
-    padding: 20px;
-    animation: slideIn 0.5s ease-out;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #020111fb;
+  color: #ffffff;
+  transition: width 0.3s ease, transform 0.4s ease-in-out;
+  padding: 20px;
+  animation: slideIn 0.5s ease-out;
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
   }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateX(-100%);
-    }
-  
-    to {
-      transform: translateX(0);
-    }
+
+  to {
+    transform: translateX(0);
   }
-  
-  .sidebar.collapsed {
-    width: 70px;
-  }
-  
-  .sidebar .toggle-sidebar-btn {
-    background: none;
-    border: none;
-    color: #921bc9;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-top: 20px;
-    padding: 10px;
-    width: 100%;
-    transition: transform 0.3s ease;
-  }
-  
-  .sidebar .toggle-sidebar-btn:hover {
-    transform: rotate(180deg);
-  }
-  
-  .sidebar .header {
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar .toggle-sidebar-btn {
+  background: none;
+  border: none;
+  color: #921bc9;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.sidebar .toggle-sidebar-btn:hover {
+  transform: rotate(180deg);
+}
+
+.sidebar .header {
   display: flex;
   align-items: center;
 }
-  
-  .sidebar img {
-    margin-right: 10px;
-  }
-  
-  .sidebar .app-title {
-    font-size: 15px;
-    font-weight: bold;
 
-  }
+.sidebar img {
+  margin-right: 10px;
+}
 
-  .sidebar-logo {
-  width: 60px;         /* Adjust size as needed */
+.sidebar .app-title {
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+.sidebar-logo {
+  width: 60px;
+  /* Adjust size as needed */
   height: auto;
   position: relative;
   top: 10px;
   left: 10px;
 }
 
-  
-  .sidebar-list {
-    list-style: none;
-    padding: 0;
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s ease-in-out;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #921bc9;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-item .sidebar-icon {
+  margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  background-color: #f0f4fa;
+  padding: 30px;
+  overflow-y: auto;
+  animation: fadeIn 0.8s ease-out;
+  position: relative;
+  /* important for ::before positioning */
+  z-index: 0;
+  /* make sure it's behind child content */
+}
+
+.main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/innLogo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* or cover */
+  opacity: 0.1;
+  /* low opacity */
+  pointer-events: none;
+  z-index: -1;
+  /* behind all content */
+}
+
+
+/* Section Title */
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1b3a57;
+  animation: fadeInText 1s ease-out;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
   }
-  
-  .sidebar-item {
-    padding: 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s ease-in-out;
+
+  to {
+    opacity: 1;
   }
-  
-  .sidebar-item:hover,
-  .sidebar-item.active {
-    background-color: #921bc9;
-    color: #ffffff;
-    transform: scale(1.05);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-  }
-  
-  .sidebar-item .sidebar-icon {
-    margin-right: 10px;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex-grow: 1;
-    background-color: #f0f4fa;
-    padding: 30px;
-    overflow-y: auto;
-    animation: fadeIn 0.8s ease-out;
-  }
-  
-  /* Section Title */
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #1b3a57;
-    animation: fadeInText 1s ease-out;
-  }
-  
-  @keyframes fadeInText {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .current-date {
-    font-size: 1.2rem;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-  }
-  
- 
-.sidebar-logoexpanded-logo{
-width: 200px;
-height: 60px;
-margin-left: 85px;
-cursor: grab;
+}
+
+.current-date {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+
+.sidebar-logoexpanded-logo {
+  width: 200px;
+  height: 60px;
+  margin-left: 85px;
+  cursor: grab;
 
 }
 
-.sidebar-logocollapsed-logo{
-width: 100px;
-height: 100px;
-position: absolute;
-left: 0;
-cursor: grab;
+.sidebar-logocollapsed-logo {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  cursor: grab;
 }
