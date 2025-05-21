@@ -18,13 +18,38 @@
 
 /* Sidebar */
 .sidebar {
+  position: relative;
   width: 280px;
   background: #020111fb;
   color: #ffffff;
   transition: width 0.3s ease, transform 0.4s ease-in-out;
   padding: 20px;
   animation: slideIn 0.5s ease-out;
+  overflow: hidden;
 }
+
+/* Background layer using ::before */
+.sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top, right, bottom, left: 0 */
+  background-image: url("/innLogo.png");
+  background-position: left -150px center; /* shift 30px to the left */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.03;
+  z-index: 0;
+  pointer-events: none; /* allows clicks to pass through */
+  
+}
+
+/* Just put z-index on the content wrapper, not every child */
+.sidebar-content {
+  position: relative;
+  z-index: 1;
+}
+
+
 
 
 @keyframes slideIn {

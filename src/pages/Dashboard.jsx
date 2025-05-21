@@ -20,6 +20,7 @@ function Dashboard() {
                             className="sidebar-logocollapsed-logo"
                               onClick={() => setSelectedSection("")}
                         />
+                        
                         <img
                             src="/nameLogo.png"
                             alt="Expanded Logo"
